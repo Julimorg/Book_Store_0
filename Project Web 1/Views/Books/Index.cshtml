@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Project_Web_1.Models.Books>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.TitlePageName</h2>
+<div class="row">
+        @foreach(var item in Model)
+            {
+                <div class="col-lg-4 col-md-4 col-md-6 col-xs-6">
+                    <div class=" panel-default">
+                        @*Item Heading*@
+                        <div class="panel-heading">
+                            @item.Title
+                        </div>
+                        @*Item Body*@
+                        <div class="panel-body">
+                            <p>Author: @item.Author</p>
+                            <p>PuiblishYear: @item.PublishYear</p>
+                            <p>Price: @item.Price</p>
+                            <p><img src=""/></p>
+                     </div>
+                        @*Item Footer*@
+                        <div class="panel-footer">
+                            @Html.ActionLink("Read More...","Detail",new {id = item.ID})
+                        </div>
+                    </div>
+                </div>
+            }
+</div>
+
